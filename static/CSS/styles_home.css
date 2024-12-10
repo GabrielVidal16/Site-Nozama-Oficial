@@ -29,10 +29,6 @@ header {
     align-items: center;
 }
 
-
-
-
-
 .welcome {
     position: fixed; /* Faz o elemento ficar fixo na tela */
     top: 25px; /* Distância do topo da tela */
