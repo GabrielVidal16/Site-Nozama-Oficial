@@ -9,7 +9,7 @@
 </head>
 <body>
         <header>
-            <div class="nome-site">NOZAMA</div>
+            <div class="nome-site">NZ</div>
             <div class="buttons">
                 {% if not logged_in %}
                     <button onclick="window.location.href='/registro'">Registrar</button>
@@ -22,22 +22,22 @@
     <div class="main-content">
         <h1>Bem-vindo ao site!</h1>
         <p>veja nossos melhores produtos aqui!</p>
+            
         <div class="product-grid">
+            {% for produto in produtos %}
             <div class="product-card">
-                <img src="{{ url_for('static', filename='images/produto 1.jpeg') }}" alt="Produto 1">
-                <h3>Elefante Psíquico de Guerra Pré-Histórico</h3>
-                <p>R$ 99,90</p>
+                <img src="{{ url_for('static', filename='images/' + produto['imagem']) }}" alt="{{ produto['nome'] }}">
+                <h3>{{ produto['nome'] }}</h3>
+                <p>R$ {{ produto['preco'] }}</p>
+                <form action="{{ url_for('produtos_bp.adicionar_ao_carrinho', produto_id=produto['id']) }}" method="POST">
+                    <button type="submit">Adicionar ao Carrinho</button>
+                </form>
+                <form action="{{ url_for('produtos_bp.comprar', produto_id=produto['id']) }}" method="POST">
+                    <button type="submit">Comprar Agora</button>
+                </form>
             </div>
-            <div class="product-card">
-                <img src="{{ url_for('static', filename='images/produto 2.jpeg') }}" alt="Produto 2">
-                <h3>Lamina do Caos</h3>
-                <p>R$ 149,90</p>
-            </div>
-            <div class="product-card">
-                <img src="{{ url_for('static', filename='images/produto 3.jpg') }}" alt="Produto 3">
-                <h3>Livro Misterioso</h3>
-                <p>R$ 199,90</p>
-            </div>
+            {% endfor %}
+        </div>
         </div>
     </div>
 </body>
