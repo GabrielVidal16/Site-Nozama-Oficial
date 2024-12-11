@@ -1,23 +1,87 @@
+/* Reset básico */
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    background-color: rgb(255, 251, 251); /* Cor de fundo */
+    height: 100vh;
+    overflow: hidden; /* Impede que os elementos saiam da tela */
+    position: relative; /* Necessário para posicionar o pseudo-elemento corretamente */
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgb(0, 0, 0) 5px, transparent 1px); /* Aumente o raio dos pontos para 5px */
+    background-size: 60px 60px; /* Define o espaçamento entre os pontos */
+    pointer-events: none; /* Garante que os pontos não interfiram nos outros elementos */
+    z-index: 0; /* Coloca os pontos atrás de outros elementos */
+}
+
+
 /* Faixa de destaque */
 .faixa {
-    background-color: #662a66b4;
+    background-color: #6e296eb4;
     height: 200px;
     width: 100%;
     text-align: center;
-    line-height: 240px;
+    line-height: 200px;
     color: rgb(250, 0, 187);
     font-size: 150px;
     font-family: sans-serif;
-    border-radius: 78px
+    border-radius: 0 0 78px 78px;
+    z-index: 2;
+    position: relative;
 }
 
-/* Estilo para a caixa central */
+/* Linha ondulada */
+.linha-ondulada {
+    width: 300%;
+    height: 100px; /* Ajuste a altura conforme necessário */
+    position: absolute;
+    bottom: 0; /* Fixa a linha ondulada na parte inferior da tela */
+    z-index: 1;
+}
+
+.linha-ondulada svg {
+    width: 100%;
+    height: 100%;
+}
+
+.linha-ondulada path {
+    fill:#850585;
+    stroke: #ff00ffb4; /* Cor da onda */
+    stroke-width: 10;
+}
+
+/* Cadastro */
+.cadastro {
+    background-color: #13030fb9;
+    margin-top: 20px;
+    height: 100px;
+    width: 500px;
+    text-align: center;
+    line-height: 100px;
+    color: rgb(250, 0, 187);
+    font-size: 50px;
+    font-family: sans-serif;
+    border-radius: 78px;
+    z-index: 2;
+}
+
+/* Caixa de cadastro */
 .caixa {
     width: 400px;
     height: 500px;
     background-color: #13030fb9;
     display: flex;
-    flex-direction: column; /* Para alinhar o formulário verticalmente */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     color: #e4dcdc;
@@ -28,6 +92,7 @@
     transform: translate(-50%, -50%);
     border-radius: 78px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    z-index: 2;
 }
 
 /* Estilo do formulário */
@@ -44,18 +109,9 @@ label {
     font-size: 17px;
 }
 
-input[type="email"]{
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: none;
-    border-radius: 10px;
-    outline: none;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    font-size: 16px;
-}
-
-input[type="text"], input[type="password"] {
+input[type="email"],
+input[type="text"],
+input[type="password"] {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
@@ -82,7 +138,8 @@ input[type="submit"]:hover {
     background-color: #6a046a;
 }
 
-.btn{
+/* Estilo do botão */
+.btn {
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 20px;
@@ -91,7 +148,12 @@ input[type="submit"]:hover {
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0,3s ease;
+    transition: background-color 0.3s ease;
     text-decoration: none;
     display: inline-block;
+}
+
+/* Efeito ao passar o mouse */
+.btn:hover {
+    background-color: #6a046a;
 }

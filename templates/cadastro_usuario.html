@@ -8,24 +8,23 @@
     <link rel="stylesheet" href="../static/css/styles_cadastro.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <style>
-        /* Estilo para a faixa colorida */
-        
-
-    </style>
 </head>
 <body style="background-color: rgb(147, 26, 163);">
-
     
+
     <div class="faixa">NOZAMA</div>
-    <div class="faixa2"></div>
+    <div class="linha-ondulada">
+        <svg viewBox="0 0 2870 150" xmlns="http://www.w3.org/2000/svg">
+            <!-- O comando T agora tem mais pontos de controle para expandir a onda -->
+            <path d="M0,150 Q300,100 600,50 T1200,50 T3000,30 V200 H0 Z"></path>
+        </svg>
+    </div>
     
-    <!-- Outros elementos -->
-
+    <div class="cadastro">Cadastro</div>
+    
+    <!-- Caixa de cadastro -->
     <div class="caixa">
         <form action="/registro" method="post">
-            
             
             <label for="nome">Nome:</label><br>
             <input type="text" id="nome" name="nome" required><br><br>
@@ -34,10 +33,10 @@
             <input type="email" id="email" name="email" required><br><br>
 
             <label for="senha">Senha:</label><br>
-            <input type="text" id="senha" name="senha"  required><br><br>
+            <input type="text" id="senha" name="senha" required><br><br>
 
             <input type="submit" value="Enviar">
-            <button class="btn" onclick="window.location.href='/login'">ja tem uma conta?</button>
+            <button class="btn" onclick="window.location.href='/login'">Já tem uma conta?</button>
         </form>
     </div> 
 
