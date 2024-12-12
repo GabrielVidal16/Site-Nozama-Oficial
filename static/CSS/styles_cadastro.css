@@ -1,16 +1,15 @@
 /* Faixa de destaque */
 .faixa {
-    background-color: #662a66b4;
-    height: 200px;
+    background-color: #007bff;
+    height: 161px;
     width: 100%;
     text-align: center;
-    line-height: 240px;
-    color: rgb(250, 0, 187);
-    font-size: 150px;
+    line-height: 225px;
+    color: rgba(247, 244, 246, 0.836);
+    font-size: 121px;
     font-family: sans-serif;
-    border-radius: 78px
+    border-radius: 78px;
 }
-
 /* Estilo para a caixa central */
 .caixa {
     width: 400px;
@@ -21,9 +20,9 @@
     justify-content: center;
     align-items: center;
     color: #e4dcdc;
-    font-size: 11px;
+    font-size: 8px;
     position: absolute;
-    top: 65%;
+    top: 52%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 78px;

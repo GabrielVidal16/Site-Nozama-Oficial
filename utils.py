@@ -4,7 +4,7 @@ def connect_to_database() :
     db_host = 'localhost'
     db_user = 'root'
     db_password = ''
-    db_name = 'trab_final'
+    db_name = 'django1'
 
     try:
         connection = mysql.connector.connect(

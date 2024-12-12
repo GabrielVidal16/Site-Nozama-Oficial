@@ -27,3 +27,6 @@ VALUES ('novo_nome', 50, 'rua conde da figueira 122, vila jardim POA', 'novoemai
 ALTER TABLE usuarios
 
 ADD COLUMN data_nascimento DATE;
+
+git config --global user.name "Ronaldoro07"
+git config --global user.email "ranaldorocha36@gmail.com"

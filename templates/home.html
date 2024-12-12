@@ -5,24 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loja Online</title>
     <link rel="stylesheet" href="../static/css/styles_home.css">
-    
+    <style>
+       
+    </style>
 </head>
 <body>
-        <header>
-            <div class="nome-site">NZ</div>
-            <div class="buttons">
-                {% if not logged_in %}
-                    <button onclick="window.location.href='/registro'">Registrar</button>
-                    <button onclick="window.location.href='/login'">Logar</button>
-                {% else %}
-                <p class="welcome">Bem-vindo, {{ session['nome'] }}!</p>
-                {% endif %}
-            </div>
-        </header>
+    <header class="header">
+        <div class="nome-site">NZ</div>
+        <div class="buttons">
+            {% if not logged_in %}
+                <button onclick="window.location.href='/registro'">Registrar</button>
+                <button onclick="window.location.href='/login'">Logar</button>
+            {% endif %}
+            <button onclick="window.location.href='/carrinho'">Carrinho</button> 
+        </div>
+    </header>
     <div class="main-content">
         <h1>Bem-vindo ao site!</h1>
-        <p>veja nossos melhores produtos aqui!</p>
-            
+        <p>Veja nossos melhores produtos aqui!</p>
         <div class="product-grid">
             {% for produto in produtos %}
             <div class="product-card">
@@ -37,7 +37,6 @@
                 </form>
             </div>
             {% endfor %}
-        </div>
         </div>
     </div>
 </body>
