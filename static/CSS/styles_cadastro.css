@@ -11,33 +11,22 @@ body {
     position: relative; /* Necessário para posicionar o pseudo-elemento corretamente */
 }
 
-body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgb(0, 0, 0) 5px, transparent 1px); /* Aumente o raio dos pontos para 5px */
-    background-size: 60px 60px; /* Define o espaçamento entre os pontos */
-    pointer-events: none; /* Garante que os pontos não interfiram nos outros elementos */
-    z-index: 0; /* Coloca os pontos atrás de outros elementos */
-}
 
 
 /* Faixa de destaque */
 .faixa {
-    background-color: #6e296eb4;
+    background-color: #ffffffcc;
     height: 200px;
     width: 100%;
     text-align: center;
     line-height: 200px;
-    color: rgb(250, 0, 187);
+    color: #000000b4;
     font-size: 150px;
     font-family: sans-serif;
-    border-radius: 0 0 78px 78px;
+    
     z-index: 2;
     position: relative;
+    border: 5px solid #000000;
 }
 
 /* Linha ondulada */
@@ -55,8 +44,8 @@ body::before {
 }
 
 .linha-ondulada path {
-    fill:#850585;
-    stroke: #ff00ffb4; /* Cor da onda */
+    fill:#ffffffcc;
+    stroke: #000000b4; /* Cor da onda */
     stroke-width: 10;
 }
 
