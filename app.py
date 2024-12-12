@@ -1,5 +1,5 @@
 
-from flask import Flask, jsonify, render_template, request, redirect, url_for
+from flask import Flask, jsonify, render_template, request, redirect, url_for, session
 import mysql.connector
 import utils
 
@@ -10,16 +10,22 @@ from rotas_testes import produtos_bp
 
 app = Flask(__name__)
 app.secret_key = 'segredo_maligno'
+app.config['SESSION_PERMANENT'] = False
+
 
 
 app.register_blueprint(usuarios_bp)
 app.register_blueprint(home_bp)
 app.register_blueprint(produtos_bp)
 
+@app.route('/')
+def index():
+    return redirect(url_for('inicial'))  # Redireciona para /inicial
 
-@app.route('/', methods=['GET'])
+
+@app.route('/inicial', methods=['GET'])
 def inicial():
-    return render_template('/home.html')
+    return redirect(url_for('home_bp.home'))
 
 if __name__ == '__main__':
     app.run(debug=True)

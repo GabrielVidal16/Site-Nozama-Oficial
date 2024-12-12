@@ -7,7 +7,7 @@ produtos_bp = Blueprint('produtos_bp',__name__)
 # Simulação de uma base de dados simples
 carrinho = []
 
-@produtos_bp.route('/')
+@produtos_bp.route('/produtos')
 def home():
     produtos = [
         {"id": 1, "nome": "Elefante Psíquico de Guerra Pré-Histórico", "preco": 99.90, "imagem": "produto 1.jpeg"},
