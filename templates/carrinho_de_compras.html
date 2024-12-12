@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras</title>
+    <link rel="stylesheet" href="../static/css/styles_carrinho.css">
+</head>
+<body>
+    <header class="header">
+        <div class="nome-site">NZ</div>
+        <div class="buttons">
+            {% if not logged_in %}
+                <button onclick="window.location.href='/registro'">Registrar</button>
+                <button onclick="window.location.href='/login'">Logar</button>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <h1>Carrinho de Compras</h1>
+
+        {% if carrinho %}
+        <div class="cart-items">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Preço</th>
+                        <th>Quantidade</th>
+                        <th>Total</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in carrinho %}
+                    <tr>
+                        <td>{{ item['nome'] }}</td>
+                        <td>R$ {{ item['preco'] }}</td>
+                        <td>
+                            <form action="{{ url_for('carrinho_bp.atualizar_quantidade', produto_id=item['id']) }}" method="POST">
+                                <input type="number" name="quantidade" value="{{ item['quantidade'] }}" min="1">
+                                <button type="submit">Atualizar</button>
+                            </form>
+                        </td>
+                        <td>R$ {{ item['total'] }}</td>
+                        <td>
+                            <form action="{{ url_for('carrinho_bp.remover', produto_id=item['id']) }}" method="POST">
+                                <button type="submit">Remover</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="total">
+                <p><strong>Total:</strong> R$ {{ total_carrinho }}</p>
+            </div>
+
+            <div class="actions">
+                <form action="{{ url_for('carrinho_bp.finalizar_compra') }}" method="POST">
+                    <button type="submit">Finalizar Compra</button>
+                </form>
+                <button onclick="window.location.href='/produtos'">Continuar Comprando</button>
+            </div>
+
+        </div>
+        {% else %}
+        <p>Seu carrinho está vazio.</p>
+        {% endif %}
+    </div>
+
+</body>
+</html>
