@@ -25,16 +25,13 @@
         <p>veja nossos melhores produtos aqui!</p>
             
         <div class="product-grid">
-            <h1>e os guri</h1>
-            <h1>e os guri</h1>
-            <h1>e os guri</h1>
             {% for produto in produtos %}
             <div class="product-card">
                 <img src="{{ url_for('static', filename='images/' + produto['imagem']) }}" alt="{{ produto['nome'] }}">
                 <h3>{{ produto['nome'] }}</h3>
                 <p>R$ {{ produto['preco'] }}</p>
                 <form action="{{ url_for('produtos_bp.adicionar_ao_carrinho', produto_id=produto['id']) }}" method="POST">
-                    <button type="submit">Adicionar ao Carrinho</button>
+                    <button onclick="window.location.href='/carrinho'" type="submit">Adicionar ao Carrinho</button>
                 </form>
                 <form action="{{ url_for('produtos_bp.comprar', produto_id=produto['id']) }}" method="POST">
                     <button type="submit">Comprar Agora</button>

@@ -19,8 +19,8 @@ def home():
 @produtos_bp.route('/adicionar_ao_carrinho/<int:produto_id>', methods=['POST'])
 def adicionar_ao_carrinho(produto_id):
     # Adiciona o produto ao carrinho (apenas o ID para simplificar)
-    carrinho.produtos_bpend(produto_id)
-    return redirect(url_for('home'))
+    carrinho.append(produto_id)
+    return redirect(url_for('carrinho_bp.carrinho'))
 
 @produtos_bp.route('/comprar/<int:produto_id>', methods=['POST'])
 def comprar(produto_id):
