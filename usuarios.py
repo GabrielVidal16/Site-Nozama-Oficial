@@ -85,6 +85,7 @@ def login():
             session['email'] = usuario[1]
             session['nome'] = usuario[3]
             
+            
 
         except mysql.connector.Error as e:
             return jsonify({"error": "Erro ao consultar o banco de dados", "details": str(e)}), 500

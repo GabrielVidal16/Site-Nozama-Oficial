@@ -10,20 +10,28 @@
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="nome-site">NZ</div>
-        <div class="buttons">
-            {% if not logged_in %}
-                <button onclick="window.location.href='/registro'">Registrar</button>
-                <button onclick="window.location.href='/login'">Logar</button>
-            {% endif %}
-            <button onclick="window.location.href='/carrinho'">Carrinho</button> 
-        </div>
-    </header>
+
+        <header>
+            <div class="nome-site">NOZAMA</div>
+            <div class="buttons">
+                {% if not logged_in %}
+                    <button onclick="window.location.href='/registro'">Registrar</button>
+                    <button onclick="window.location.href='/login'">Logar</button>
+                {% else %}
+                <p class="welcome">Bem-vindo, {{ session['nome'] }}!</p>
+                {% endif %}
+            </div>
+        </header>
+
     <div class="main-content">
         <h1>Bem-vindo ao site!</h1>
-        <p>Veja nossos melhores produtos aqui!</p>
+        <p>veja nossos melhores produtos aqui!</p>
+            
         <div class="product-grid">
+            <h1>e os guri</h1>
+            <h1>e os guri</h1>
+            <h1>e os guri</h1>
+
             {% for produto in produtos %}
             <div class="product-card">
                 <img src="{{ url_for('static', filename='images/' + produto['imagem']) }}" alt="{{ produto['nome'] }}">
@@ -37,6 +45,8 @@
                 </form>
             </div>
             {% endfor %}
+
+        </div>
         </div>
     </div>
 </body>

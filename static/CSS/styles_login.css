@@ -1,5 +1,14 @@
-/* Faixa de destaque */
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Organiza os elementos em uma coluna */
+    align-items: center;    /* Centraliza horizontalmente */
+    justify-content: start; /* Alinha no topo */
+    background-color: #f0f0f0;
+    height: 100vh;          /* Altura total da viewport */
+}
 .faixa {
+<<<<<<< HEAD
     background-color: #007bff;
     height: 161px;
     width: 100%;
@@ -8,6 +17,33 @@
     color: rgba(247, 244, 246, 0.836);
     font-size: 121px;
     font-family: sans-serif;
+=======
+    background-color: #ffffffcc;
+    height: 200px;
+    width: 100%;
+    text-align: center;
+    line-height: 200px;
+    color: #000000b4;
+    font-size: 150px;
+    font-family: sans-serif;
+    
+    z-index: 2;
+    position: relative;
+    border: 5px solid #000000;
+}
+
+
+.login {
+    background-color: #13030fb9;
+    margin-top: 20px;       /* Espaço entre a faixa e o cadastro */
+    height: 100px;
+    width: 500px;
+    text-align: center;
+    line-height: 100px;
+    color: rgb(250, 0, 187);
+    font-size: 50px;
+    font-family: sans-serif;
+>>>>>>> 79ce879a98c16ed441e62c46c001e172e33287cd
     border-radius: 78px;
 }
 
@@ -23,7 +59,11 @@
     color: #e4dcdc;
     font-size: 11px;
     position: absolute;
+<<<<<<< HEAD
     top: 52%;
+=======
+    top: 66%;
+>>>>>>> 79ce879a98c16ed441e62c46c001e172e33287cd
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 78px;
@@ -71,16 +111,22 @@ input[type="submit"]:hover {
     background-color: #6a046a;
 }
 
-.btn{
+.btn {
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 20px;
     color: #fff;
-    background-color: #850585;
+    background-color: #850585; /* Cor inicial */
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0,3s ease;
+    transition: background-color 0.3s ease; /* Transição suave corrigida */
     text-decoration: none;
     display: inline-block;
 }
+
+/* Efeito ao passar o mouse */
+.btn:hover {
+    background-color: #6a046a; /* Cor mais escura ao passar o mouse */
+}
+
