@@ -4,8 +4,9 @@ from utils import *
 
 home_bp = Blueprint('home_bp',__name__)
 
-@home_bp.route('/home')
+@home_bp.route('/home', methods=['POST', 'GET'])
 def home():
+
     produtos = [
         {"id": 1, "nome": "Elefante Psíquico de Guerra Pré-Histórico", "preco": 99.90, "imagem": "produto 1.jpeg"},
         {"id": 2, "nome": "Lamina do Caos", "preco": 149.90, "imagem": "produto 2.jpeg"},
