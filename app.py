@@ -7,6 +7,7 @@ import utils
 from usuarios import usuarios_bp
 from homes import home_bp
 from rotas_testes import produtos_bp
+from carrinhos import carrinho_bp
 
 app = Flask(__name__)
 app.secret_key = 'segredo_maligno'
@@ -17,6 +18,7 @@ app.config['SESSION_PERMANENT'] = False
 app.register_blueprint(usuarios_bp)
 app.register_blueprint(home_bp)
 app.register_blueprint(produtos_bp)
+app.register_blueprint(carrinho_bp)
 
 @app.route('/')
 def index():
