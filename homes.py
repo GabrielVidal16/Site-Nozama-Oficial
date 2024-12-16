@@ -3,7 +3,7 @@ import mysql.connector
 from utils import *
 
 home_bp = Blueprint('home_bp',__name__)
-
+itens = [{}]
 @home_bp.route('/home', methods=['POST', 'GET'])
 def home():
 
@@ -13,5 +13,10 @@ def home():
         {"id": 3, "nome": "Livro Misterioso", "preco": 199.90, "imagem": "produto 3.jpg"},
     ]
     logged_in = 'user_id' in session
-    return render_template('home.html', produtos=produtos,logged_in=logged_in)
+
+    if request.method == 'GET':
+        return render_template('home.html', produtos=produtos,logged_in=logged_in)
+    
+
+
 

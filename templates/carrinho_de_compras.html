@@ -20,7 +20,7 @@
     <div class="main-content">
         <h1>Carrinho de Compras</h1>
 
-        {% if carrinho %}
+        {% if itens %}
         <div class="cart-items">
             <table>
                 <thead>
@@ -33,22 +33,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for item in carrinho %}
+                    {% for item in itens %}
                     <tr>
                         <td>{{ item['nome'] }}</td>
                         <td>R$ {{ item['preco'] }}</td>
-                        <td>
-                            <form action="{{ url_for('carrinho_bp.atualizar_quantidade', produto_id=item['id']) }}" method="POST">
-                                <input type="number" name="quantidade" value="{{ item['quantidade'] }}" min="1">
-                                <button type="submit">Atualizar</button>
-                            </form>
-                        </td>
                         <td>R$ {{ item['total'] }}</td>
-                        <td>
-                            <form action="{{ url_for('carrinho_bp.remover', produto_id=item['id']) }}" method="POST">
-                                <button type="submit">Remover</button>
-                            </form>
-                        </td>
+                        <td>R$ {{ item['quantidade'] }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -59,10 +49,7 @@
             </div>
 
             <div class="actions">
-                <form action="{{ url_for('carrinho_bp.finalizar_compra') }}" method="POST">
-                    <button type="submit">Finalizar Compra</button>
-                </form>
-                <button onclick="window.location.href='/produtos'">Continuar Comprando</button>
+                <button onclick="window.location.href='/home'">Continuar Comprando</button>
             </div>
 
         </div>
