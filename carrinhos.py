@@ -7,7 +7,7 @@ carrinho_bp = Blueprint('carrinho_bp',__name__)
 
 @carrinho_bp.route('/carrinho', methods=['POST', 'GET'])
 def carrinho():
-    return redirect(url_for('home_bp.'))
+    return redirect(url_for('home_bp.home'))
 
 @carrinho_bp.route('/adicionar/<int:produto_id>', methods=['POST', 'GET'])
 def adicionar_ao_carrinho(produto_id):
