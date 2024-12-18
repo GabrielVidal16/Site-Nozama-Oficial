@@ -27,3 +27,32 @@ VALUES ('novo_nome', 50, 'rua conde da figueira 122, vila jardim POA', 'novoemai
 ALTER TABLE usuarios
 
 ADD COLUMN data_nascimento DATE;
+
+CREATE TABLE produtos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(150) NOT NULL,
+    preco DECIMAL(10, 2) NOT NULL
+);
+
+CREATE TABLE compras (
+    id INT AUTO_INCREMENT PRIMARY KEY,    -- Identificador único para a compra
+    usuario_id INT NOT NULL,              -- Relaciona com o usuário que fez a compra
+    produto_id INT NOT NULL,              -- Relaciona com o produto comprado
+    quantidade INT NOT NULL,              -- Quantidade comprada
+    data_compra TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Data da compra
+    FOREIGN KEY (usuario_id) REFERENCES usuarios (id) ON DELETE CASCADE,
+    FOREIGN KEY (produto_id) REFERENCES produtos (id) ON DELETE CASCADE
+);
+
+ {"id": 1, "nome": "Elefante Psíquico de Guerra Pré-Histórico", "preco": 99.90, "imagem": "produto 1.jpeg"},
+        {"id": 2, "nome": "Lamina do Caos", "preco": 149.90, "imagem": "produto 2.jpeg"},
+        {"id": 3, "nome": "Livro Misterioso", "preco": 199.90, "imagem": "produto 3.jpg"},
+
+INSERT INTO produtos (nome, preco)
+VALUES ('lamina do caos', 150.00);
+
+INSERT INTO produtos (nome, preco)
+VALUES ('Elefante Psíquico de Guerra Pré-Histórico', 100.00);
+
+INSERT INTO produtos (nome, preco)
+VALUES ('Livro Misterioso', 200.00);
